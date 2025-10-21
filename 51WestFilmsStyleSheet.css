@@ -9,11 +9,18 @@
 }
 
 body {
-  font-family: 'Inter', Arial, sans-serif;
+ font-family:'redhat';
   color: #e5bc00;
   background: #0d0d0d;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'redhat';
+    src: url('fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* =========================================
@@ -81,42 +88,161 @@ nav img {
 }
 
 /* =========================================
-   🔸 About Section
+   🔸 About Section (Nieuwe strakke stijl)
 ============================================ */
-.about {
-  display: flex;
-  justify-content: center;
-  color: #e5bc00;
-  padding: 6rem 2rem;
-  margin: 0 auto;
-  max-width: 80%;
+.about-new-style {
+    /* Flex-direction: column is belangrijk om de iconen grid eronder te plaatsen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    background: #0d0d0d;
 }
 
-.content-about {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 3rem;
-  width: 100%;
+.content-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* Max breedte nu 80% van de viewport */
+    max-width: 80%; 
+    width: 100%;
+    gap: 2.5rem; 
 }
 
-.about h2 {
-  font-size: 3em;
-  margin-bottom: 2em;
+.info-text-box {
+    flex: 2;
+    background: #0d0d0d;
+    border: 0.0625rem solid #222;
+    padding: 3rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 0 3.125rem rgba(0, 0, 0, 0.5);
 }
 
-.content-about p {
-  flex: 2;
-  line-height: 1.7;
-  font-size: 1.6em;
+.info-text-box h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1.875rem;
+    text-align: center;
+    
 }
 
-.content-about img {
-  flex: 1;
-  max-width: 35%;
-  width: 100%;
-  border-radius: 1rem;
-  object-fit: cover;
+.bio-text {
+    font-size: clamp(1.7rem, 1.5vw, 1.3rem); 
+    line-height: 1.7;
+    margin-bottom: 1.5625rem;
+    text-align: center;
+    
+}
+
+/* 🖼️ Stijl voor de Afbeelding BOX */
+.info-image-box {
+    flex: 1;
+
+    border-radius: 0.3125rem; 
+    position: relative;
+    overflow: hidden;
+}
+
+/* 📸 Stijl voor de HTML <img> binnen de box */
+.info-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    display: block;
+    border-radius: 0.3125rem;
+}
+
+/* =========================================
+   🔸 Contact Links in About Sectie
+============================================ */
+
+/* Container voor de email link */
+.contact-email-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3125rem;
+}
+
+/* Link element zelf (probleem opgelost, nu correct) */
+.contact-email-link a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #e5bc00; /* Zorgt dat de link de juiste kleur heeft */
+    font-size: x-large;
+}
+
+.contact-email-link p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.contact-email-link i {
+    font-size: 2rem;
+    color: #e5bc00;
+    margin-bottom: 0.3125rem;
+}
+
+.contact-email-link a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   🔸 Logos / Partners Grid (3 Items, onder de content-container)
+============================================ */
+/* NIEUW: Zorgt dat de grid de breedte van de content-container krijgt */
+.logos-section-inline {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Extra ruimte boven de grid, zodat deze los staat van de info-box */
+    padding: 10rem 2rem 0; 
+}
+
+.logos-grid-small {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 0.0625rem solid #222;
+    border-radius: 1.25rem;
+    max-width: 60rem; /* Max breedte van de grid */
+    width: 100%;
+    overflow: hidden; 
+}
+
+.grid-item-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 8rem; 
+    padding: 2rem;
+    border-right: 0.0625rem solid #222;
+    background: #111111; 
+    transition: background 0.3s ease;
+}
+
+/* Verwijder de rechter border voor het laatste item */
+.logos-grid-small > .grid-item-small:last-child {
+    border-right: none;
+}
+
+/* Stijl voor de inhoud (Iconen) */
+.grid-item-small a {
+    color: #ffffff; 
+    font-size: 3.5rem; 
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-item-small a:hover {
+    transform: scale(1.1);
+}
+
+
+.grid-item-small a:hover i {
+    color: #e5bc00; 
 }
 
 /* =========================================
@@ -219,72 +345,6 @@ footer {
   display: none;
 }
 
-/* =========================================
-   🔸 Responsive Styles
-============================================ */
-
-/* --- Tablets --- */
-@media (max-width: 75rem) {
-  .about {
-    flex-direction: column;
-    text-align: center;
-    padding: 5rem 2rem;
-  }
-
-  .content-about {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .content-about img {
-    max-width: 70%;
-  }
-
-  .content-about p {
-    font-size: 1.4em;
-  }
-
-  .work2 .card img {
-    width: 100%;
-  }
-
-  .work .grid {
-    gap: 1.5rem;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* --- Phones --- */
-@media (max-width: 48rem) {
-  /* Nav */
-  .menu-icon {
-    display: flex;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    flex-direction: column;
-    background: #111;
-    width: 80%;
-    display: none;
-    text-align: center;
-    padding: 1.5rem 0;
-    border-radius: 1rem;
-    box-shadow: 0 1rem 3rem rgba(0,0,0,0.4);
-  }
-
-  .nav-links li + li {
-    margin-top: 1rem;
-  }
-
-  #menu-toggle:checked ~ .nav-links {
-    display: flex;
-    animation: dropdown 0.25s ease forwards;
-  }
-
 /* Plaats de drie streepjes */
 .menu-icon span:nth-child(1) {
   top: 0;
@@ -313,7 +373,8 @@ footer {
   top: 50%;
   transform: rotate(-45deg);
 }
-  @keyframes dropdown {
+
+@keyframes dropdown {
     from {
       opacity: 0;
       transform: translateX(-50%) translateY(-1rem);
@@ -322,37 +383,290 @@ footer {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
-  }
+}
 
-  /* Work2 + Work even breed en centreren */
-  .work2 .flex,
-  .work .grid {
-    width: 95%;
-    max-width: none;
-  }
 
-  .work2 .card img,
-  .work .card img {
+/* =========================================
+   🔸 Contact & Follow Section (Verbeterd)
+============================================ */
+
+.contact-section {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-margin-top: 5rem;
+}
+
+.contact-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-section p {
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  margin-bottom: 3rem;
+  color: #aaa;
+  max-width: 40rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.contact-form {
+  width: 90%;
+  max-width: 37.5rem;
+  background: #000;
+  border: 0.0625rem solid #222;
+  padding: 2.5rem 2rem;
+  border-radius: 0.3em;
+  box-sizing: border-box;
+}
+
+.contact-vormen {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-vormen P{
+      font-size: 4em;
+      padding: 2em;
+      font-weight: bold;
+}
+
+
+/* =========================================
+   🔸 Responsive Styles
+============================================ */
+
+/* --- Tablets (max-width: 75rem = 1200px) --- */
+@media (max-width: 75rem) {
+    /* Container wordt verticaal en breder op tablet */
+    .content-container {
+        flex-direction: column;
+        gap: 1.875rem; /* Aangepast naar rem */
+        max-width: 90%; 
+    }
+.logos-section-inline {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Extra ruimte boven de grid, zodat deze los staat van de info-box */
+    padding: 2rem 2rem 0; 
+}
+
+    .info-image-box {
+        width: 100%;
+        max-width: 25rem; /* Aangepast naar rem */
+        min-height: 25rem; /* Aangepast naar rem */
+        flex: none;
+    }
+    
+    .bio-text {
+        font-size: 1.1rem; 
+    }
+    
+  .work2 .card img {
     width: 100%;
   }
 
-  /* Minder padding = geen zwarte randen */
-  .work, .work2 {
-    padding: 1rem 1rem;
+  .work .grid {
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
   }
+  
+}
 
-  /* About groter en gecentreerd */
-  .about {
-    padding: 3rem 1rem;
-    max-width: 100%;
-  }
+/* --- Phones (max-width: 48rem = 768px) --- */
+@media (max-width: 48rem) {
+    /* Nav */
 
-  .content-about img {
-    max-width: 90%;
-    transform: scale(1.05);
-  }
+    .menu-icon {
+        display: flex;
+    }
 
-  .content-about p {
-    font-size: 1.2em;
-  }
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        background: #111;
+        width: 80%;
+        display: none;
+        text-align: center;
+        padding: 1.5rem 0;
+        border-radius: 1rem;
+        box-shadow: 0 1rem 3rem rgba(0,0,0,0.4);
+    }
+
+    .nav-links li + li {
+        margin-top: 1rem;
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
+        animation: dropdown 0.25s ease forwards;
+    }
+    
+    /* Work2 + Work even breed en centreren */
+    .work2 .flex,
+    .work .grid {
+        width: 95%;
+        max-width: none;
+    }
+
+    .work2 .card img,
+    .work .card img {
+        width: 100%;
+    }
+
+    /* Minder padding = geen zwarte randen */
+    .work, .work2 {
+        padding: 1rem 1rem;
+    }
+
+    /* About groter en gecentreerd */
+    .about-new-style {
+        padding: 3rem 1rem;
+        max-width: 100%;
+    }
+    
+    .info-text-box {
+        padding: 1.5rem 1rem; /* Aangepast naar rem */
+      border: 0.0625rem solid #222;
+    }
+    
+    .info-image-box {
+        min-height: 18.75rem; /* Aangepast naar rem */
+    }
+    
+    /* Responsive Styles voor de Logos Grid (3 Items) */
+    .logos-grid-small {
+        /* Mobiel: 1 Kolom, zodat ze netjes onder elkaar staan */
+        grid-template-columns: 1fr;
+        max-width: 95%;
+        border-radius: 1rem;
+    }
+
+    .grid-item-small {
+        min-height: 6rem; /* Iets kleiner op mobiel */
+        border-right: none;
+        border-bottom: 0.0625rem solid #222;
+    }
+
+    /* Verwijder de onderste border voor het allerlaatste item */
+    .logos-grid-small > .grid-item-small:last-child {
+        border-bottom: none;
+    }
+    
+    .grid-item-small a {
+        font-size: 2.5rem;
+        display: flex;
+        justify-content: center;
+    }
+
+
+}
+
+.grid-item-small a img{
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+/* --- Phones (max-width: 48rem = 768px) --- */
+@media (max-width: 48rem) {
+    /* Navigatie (hamburger menu) */
+    .menu-icon {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+        background: #111;
+        width: 80%;
+        display: none;
+        text-align: center;
+        padding: 1.5rem 0;
+        border-radius: 1rem;
+        box-shadow: 0 1rem 3rem rgba(0,0,0,0.4);
+    }
+
+    .nav-links li + li {
+        margin-top: 1rem;
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
+        animation: dropdown 0.25s ease forwards;
+    }
+    
+    /* Werksecties */
+    .work2 .flex,
+    .work .grid {
+        width: 95%;
+        max-width: none;
+    }
+
+    .work2 .card img,
+    .work .card img {
+        width: 100%;
+    }
+
+    .work, .work2 {
+        padding: 1rem 1rem;
+    }
+
+    /* About Sectie */
+    .about-new-style {
+        padding: 3rem 1rem;
+        max-width: 100%;
+    }
+    
+    .info-text-box {
+        padding: 1.5rem 1rem; 
+        border: 0.0625rem solid #222;
+    }
+    
+    .info-image-box {
+        min-height: 18.75rem; 
+    }
+    
+    /* Responsive Styles voor de Logos Grid (3 Items) */
+    .logos-grid-small {
+        grid-template-columns: 1fr;
+        max-width: 95%;
+        border-radius: 1rem;
+    }
+
+    .grid-item-small {
+        min-height: 5rem; /* Maakt het vakje kleiner */
+        border-right: none;
+        border-bottom: 0.0625rem solid #222;
+    }
+
+    /* Verwijder de onderste border voor het allerlaatste item */
+    .logos-grid-small > .grid-item-small:last-child {
+        border-bottom: none;
+    }
+    
+    .grid-item-small a {
+        font-size: 2rem; /* VERKLEIND: Icoongrootte is nu kleiner */
+
+    }
+
+    .grid-item-small a img {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
 }
