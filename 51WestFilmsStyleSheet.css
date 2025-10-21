@@ -23,6 +23,13 @@ body {
     font-style: normal;
 }
 
+
+@font-face {
+    font-family: 'BBH';
+    src: url('fonts/BBHSansHegarty-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 /* =========================================
    🔸 Header + Navigation
 ============================================ */
@@ -32,7 +39,24 @@ header {
   width: 100%;
   z-index: 1000;
 }
+h1{
+  font-family: "BBH";
+  color: #e5bc00;
+  
 
+
+}
+h2{
+    font-family: "BBH";
+  color: #e5bc00;
+    margin-top: 2em;
+    font-size: xxx-large;
+}
+ul li {
+
+  font-size: xx-large;
+  font-family: "BBH";
+}
 nav {
   display: flex;
   justify-content: space-between;
@@ -89,69 +113,92 @@ nav img {
 
 /* =========================================
    🔸 About Section (Nieuwe strakke stijl)
+    -- Aangepast naar Afbeelding Layout --
 ============================================ */
 .about-new-style {
-    /* Flex-direction: column is belangrijk om de iconen grid eronder te plaatsen */
+    /* Zorgt voor de grijze achtergrond */
+    color: #0d0d0d; /* Zwarte tekst */
+    padding: 5rem 0; /* Padding boven en onder */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 6rem 2rem;
-    background: #0d0d0d;
 }
 
 .content-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    /* Max breedte nu 80% van de viewport */
-    max-width: 80%; 
-    width: 100%;
-    gap: 2.5rem; 
+    align-items: stretch; /* BELANGRIJK: Zorgt dat items even hoog zijn */
+    max-width: 75rem; /* Max breedte van de hele sectie */
+    width: 90%;
+    gap: 0; /* Geen gap meer */
+    background: #111; /* Witte achtergrond voor de innerlijke boxen */
+    border-radius: 0em 0em 0em 0em;
 }
 
 .info-text-box {
-    flex: 2;
-    background: #0d0d0d;
-    border: 0.0625rem solid #222;
-    padding: 3rem;
-    border-radius: 1.25rem;
-    box-shadow: 0 0 3.125rem rgba(0, 0, 0, 0.5);
+    flex: 1; /* Beide krijgen evenveel ruimte */
+    background: #111;
+    border: none; /* Geen border meer */
+    padding: 4rem 3rem 4rem 4rem; /* Padding aan de binnenkant */
+    border-radius: 0;
+    display: flex; /* Maakt de interne uitlijning mogelijk */
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
+/* NIEUW: Rode onderstreping voor H1 */
 .info-text-box h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.5rem, 4vw, 3rem);
     font-weight: 700;
-    margin-bottom: 1.875rem;
-    text-align: center;
-    
+    margin-bottom: 0.5rem;
+    text-align: left; /* Links uitlijnen */
+    position: relative;
+}
+
+.heading-underline {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 2rem; /* Ruimte onder de lijn */
 }
 
 .bio-text {
-    font-size: clamp(1.7rem, 1.5vw, 1.3rem); 
-    line-height: 1.7;
+    font-family:'redhat';
+    font-size: clamp(1rem, 1.15vw, 1.15rem); 
+    line-height: 1.8;
     margin-bottom: 1.5625rem;
-    text-align: center;
-    
+    text-align: left; /* Links uitlijnen */
+    color: #e5bc00; /* Iets lichtere tekstkleur */
 }
 
 /* 🖼️ Stijl voor de Afbeelding BOX */
 .info-image-box {
-    flex: 1;
-
-    border-radius: 0.3125rem; 
+    flex: 1; /* Beide helften even breed */
     position: relative;
     overflow: hidden;
+    /* Dit creëert de rode rand aan de boven- en rechterkant */
 }
+
+/* Zorgt voor de afsnijding hoek (optioneel, maar maakt het gelijk aan de afbeelding) */
+.info-image-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 4rem solid #fff; /* Hoogte van de witte driehoek */
+    border-left: 4rem solid transparent; /* Breedte van de driehoek */
+    transform: translateX(100%);
+}
+
 
 /* 📸 Stijl voor de HTML <img> binnen de box */
 .info-image-box img {
     width: 100%;
     height: 100%;
-    object-fit: contain; 
+    object-fit: cover; /* BELANGRIJK: Zorgt dat de afbeelding het hele vlak vult */
     display: block;
-    border-radius: 0.3125rem;
 }
 
 /* =========================================
@@ -191,6 +238,7 @@ nav img {
 
 /* =========================================
    🔸 Logos / Partners Grid (3 Items, onder de content-container)
+    -- Aangepast naar strakke box-stijl --
 ============================================ */
 /* NIEUW: Zorgt dat de grid de breedte van de content-container krijgt */
 .logos-section-inline {
@@ -198,14 +246,14 @@ nav img {
     display: flex;
     justify-content: center;
     /* Extra ruimte boven de grid, zodat deze los staat van de info-box */
-    padding: 10rem 2rem 0; 
+    padding: 3rem 2rem 0; /* Aangepast voor meer ruimte onder de About-sectie */
 }
 
 .logos-grid-small {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border: 0.0625rem solid #222;
-    border-radius: 1.25rem;
+    /* Verwijdert de individuele borders ten gunste van één strakke box */
+  
     max-width: 60rem; /* Max breedte van de grid */
     width: 100%;
     overflow: hidden; 
@@ -213,13 +261,12 @@ nav img {
 
 .grid-item-small {
     display: flex;
+    flex-direction: column; /* Zorgt dat de tekst onder het logo kan */
     justify-content: center;
-    align-items: center;
     min-height: 8rem; 
-    padding: 2rem;
-    border-right: 0.0625rem solid #222;
-    background: #111111; 
+    background: #111111; /* Donkere achtergrond */
     transition: background 0.3s ease;
+    margin:1em;
 }
 
 /* Verwijder de rechter border voor het laatste item */
@@ -227,29 +274,43 @@ nav img {
     border-right: none;
 }
 
-/* Stijl voor de inhoud (Iconen) */
+/* Stijl voor de inhoud (Link container) */
 .grid-item-small a {
-    color: #ffffff; 
+    color: #e5bc00; /* Standaard de gele kleur */
     font-size: 3.5rem; 
     transition: transform 0.3s ease;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Geen onderstreping */
 }
+
+/* Stijl voor de afbeeldingen in de grid */
+.grid-item-small a img{
+    display: block;
+    width: 80%; /* Logo neemt 80% van de ruimte in */
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 0.5rem; /* Ruimte onder het logo */
+    transition: opacity 0.3s ease;
+}
+
 
 .grid-item-small a:hover {
-    transform: scale(1.1);
+    transform: none; /* Geen scale-effect op de hele link, alleen op de content */
 }
 
-
-.grid-item-small a:hover i {
-    color: #e5bc00; 
+.grid-item-small a:hover img {
+    opacity: 0.8; /* Dim het logo een beetje bij hover */
 }
 
 /* =========================================
    🔸 Work Section (large project posters)
+    -- Aangepast: Max-breedte verkleind op grote schermen --
 ============================================ */
 .work2 {
-  padding: 5rem 2rem;
+  padding: 5rem rem;
   display: flex;
   justify-content: center;
 }
@@ -259,8 +320,9 @@ nav img {
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  width: 100%;
-  max-width: 120rem; /* ✅ zelfde breedte als de grid */
+ /* Aangepast: Maak de sectie kleiner op grote schermen (80% van max 120rem) */
+  width: 80%;
+  max-width: 96rem; /* 80% van 120rem is 96rem */
   margin: 0 auto;
 }
 
@@ -269,11 +331,12 @@ nav img {
 }
 
 .work2 .card img {
-  width: 100%;
-  border-radius: 1rem;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  display: block;
+  /* Reset naar een normale, gecentreerde afbeeldingstijl */
+    width: 100%;
+    border-radius: 0em 0em 0em 0em; /* Gebruikt je eigen radius-stijl */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
 }
 
 .work2 .card img:hover {
@@ -282,6 +345,7 @@ nav img {
 
 /* =========================================
    🔸 Work Section (3x2 grid thumbnails)
+    -- Aangepast: Max-breedte verkleind op grote schermen --
 ============================================ */
 .work {
   display: flex;
@@ -293,14 +357,14 @@ nav img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  width: 100%;
-  max-width: 120rem; /* ✅ exact gelijk aan Work2 */
+  /* Aangepast: Maak de sectie kleiner op grote schermen (80% van max 120rem) */
+  width: 84%;
+  max-width: 96rem; /* 80% van 120rem is 96rem */
   margin: 0 auto;
 }
 
 .work .card img {
   width: 100%;
-  border-radius: 1rem;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -316,9 +380,9 @@ footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
-  color: #777;
+  color:#e5bc00;
+  font-weight: 900;
 }
-
 /* =========================================
    🔸 Hamburger Menu
 ============================================ */
@@ -337,7 +401,6 @@ footer {
   width: 100%;
   height: 0.2rem;
   background: #e5bc00;
-  border-radius: 1rem;
   transition: all 0.3s ease;
 }
 
@@ -374,68 +437,28 @@ footer {
   transform: rotate(-45deg);
 }
 
-@keyframes dropdown {
+/* NIEUWE Keyframes voor slideInLeft */
+@keyframes slideInLeft {
     from {
-      opacity: 0;
-      transform: translateX(-50%) translateY(-1rem);
+        opacity: 0;
+        transform: translateX(-100%); /* Start buiten beeld links */
     }
     to {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
+        opacity: 1;
+        transform: translateX(0); /* Eindpositie, volledig zichtbaar */
     }
 }
 
-
-/* =========================================
-   🔸 Contact & Follow Section (Verbeterd)
-============================================ */
-
-.contact-section {
-  width: 100%;
-  background: #000;
-  color: #fff;
-  padding: 5rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  scroll-margin-top: 5rem;
-}
-
-.contact-section h2 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.contact-section p {
-  font-size: clamp(0.9rem, 1.2vw, 1rem);
-  margin-bottom: 3rem;
-  color: #aaa;
-  max-width: 40rem;
-  text-align: center;
-  line-height: 1.6;
-}
-
-.contact-form {
-  width: 90%;
-  max-width: 37.5rem;
-  background: #000;
-  border: 0.0625rem solid #222;
-  padding: 2.5rem 2rem;
-  border-radius: 0.3em;
-  box-sizing: border-box;
-}
-
-.contact-vormen {
-    display: flex;
-    justify-content: center;
-}
-
-.contact-vormen P{
-      font-size: 4em;
-      padding: 2em;
-      font-weight: bold;
+/* NIEUWE Keyframes voor slideOutLeft (Sluiten) */
+@keyframes slideOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0); /* Startpositie, volledig zichtbaar */
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100%); /* Eindpositie, schuift naar links uit beeld */
+    }
 }
 
 
@@ -445,24 +468,56 @@ footer {
 
 /* --- Tablets (max-width: 75rem = 1200px) --- */
 @media (max-width: 75rem) {
+      /* 📸 Stijl voor de HTML <img> binnen de box */
+.info-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* BELANGRIJK: Zorgt dat de afbeelding het hele vlak vult */
+    display: block;
+    border-radius: 0;
+}
+ 
     /* Container wordt verticaal en breder op tablet */
     .content-container {
         flex-direction: column;
-        gap: 1.875rem; /* Aangepast naar rem */
-        max-width: 90%; 
+        gap: 0; /* Geen gap */
+        max-width: 100%; 
     }
-.logos-section-inline {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    /* Extra ruimte boven de grid, zodat deze los staat van de info-box */
-    padding: 2rem 2rem 0; 
-}
+    .about-new-style {
+        padding: 3rem 0; 
+    }
+    
+    .info-text-box {
+        padding: 2rem; 
 
+    }
+    
     .info-image-box {
         width: 100%;
-        max-width: 25rem; /* Aangepast naar rem */
-        min-height: 25rem; /* Aangepast naar rem */
+        max-width: 100%; 
+        min-height: 20rem; /* Vaste hoogte op mobiel */
+        flex: none;
+        border: none; /* Geen rode rand op mobiel */
+    }
+    
+    .info-image-box::after {
+        content: none; /* Geen hoek op mobiel */
+    }
+    
+    .heading-underline::before {
+        bottom: 1.5rem;
+    }
+    
+    /* Rest van de tablet stijlen */
+    .logos-section-inline {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        /* Extra ruimte boven de grid, zodat deze los staat van de info-box */
+        padding: 2rem 2rem 0; 
+    }
+
+    .info-image-box {
         flex: none;
     }
     
@@ -470,113 +525,34 @@ footer {
         font-size: 1.1rem; 
     }
     
-  .work2 .card img {
-    width: 100%;
-  }
-
-  .work .grid {
-    gap: 1.5rem;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-}
-
-/* --- Phones (max-width: 48rem = 768px) --- */
-@media (max-width: 48rem) {
-    /* Nav */
-
-    .menu-icon {
-        display: flex;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        flex-direction: column;
-        background: #111;
-        width: 80%;
-        display: none;
-        text-align: center;
-        padding: 1.5rem 0;
-        border-radius: 1rem;
-        box-shadow: 0 1rem 3rem rgba(0,0,0,0.4);
-    }
-
-    .nav-links li + li {
-        margin-top: 1rem;
-    }
-
-    #menu-toggle:checked ~ .nav-links {
-        display: flex;
-        animation: dropdown 0.25s ease forwards;
-    }
-    
-    /* Work2 + Work even breed en centreren */
-    .work2 .flex,
-    .work .grid {
-        width: 95%;
-        max-width: none;
-    }
-
-    .work2 .card img,
-    .work .card img {
+    .work2 .card img {
         width: 100%;
     }
 
-    /* Minder padding = geen zwarte randen */
-    .work, .work2 {
-        padding: 1rem 1rem;
+    .work .grid {
+        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    /* About groter en gecentreerd */
-    .about-new-style {
-        padding: 3rem 1rem;
+/* Work Secties: Full width op tablet schermen */
+    .work2 .flex,
+     .grid {
+        width: 90%; /* Zorgt voor 90% breedte op tablet */
         max-width: 100%;
     }
-    
-    .info-text-box {
-        padding: 1.5rem 1rem; /* Aangepast naar rem */
-      border: 0.0625rem solid #222;
-    }
-    
-    .info-image-box {
-        min-height: 18.75rem; /* Aangepast naar rem */
-    }
-    
-    /* Responsive Styles voor de Logos Grid (3 Items) */
-    .logos-grid-small {
-        /* Mobiel: 1 Kolom, zodat ze netjes onder elkaar staan */
-        grid-template-columns: 1fr;
-        max-width: 95%;
-        border-radius: 1rem;
+    .work{
+      width: 100%;
     }
 
-    .grid-item-small {
-        min-height: 6rem; /* Iets kleiner op mobiel */
-        border-right: none;
-        border-bottom: 0.0625rem solid #222;
-    }
-
-    /* Verwijder de onderste border voor het allerlaatste item */
-    .logos-grid-small > .grid-item-small:last-child {
-        border-bottom: none;
-    }
-    
-    .grid-item-small a {
-        font-size: 2.5rem;
-        display: flex;
-        justify-content: center;
-    }
-
-
+    .work .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  /* Aangepast: Maak de sectie kleiner op grote schermen (80% van max 120rem) */
+  width: 97%;
+  max-width: 96rem; /* 80% van 120rem is 96rem */
+  margin: 0 auto;
 }
-
-.grid-item-small a img{
-  display: flex;
-  justify-content: center;
-  width: 80%;
+  
 }
 
 /* --- Phones (max-width: 48rem = 768px) --- */
@@ -585,31 +561,52 @@ footer {
     .menu-icon {
         display: flex;
     }
-
+h2 {
+  font-family: "BBH";
+  color: #e5bc00;
+  margin-top: 2em;
+}
+    /* BELANGRIJK: DEZE HELE STIJL IS HERZIEN VOOR DE ANIMATIE FIX */
     .nav-links {
+        /* Basisinstellingen */
         position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
+        top: 0;
+        left: 0;
         flex-direction: column;
         background: #111;
         width: 80%;
-        display: none;
-        text-align: center;
-        padding: 1.5rem 0;
-        border-radius: 1rem;
+        text-align: left;
+        padding: 3.5rem;
         box-shadow: 0 1rem 3rem rgba(0,0,0,0.4);
+        height: 100vh;
+        max-width: 40vh;
+
+        /* Animatie Fix: Beginpositie */
+        transform: translateX(-100%); /* Start buiten beeld */
+        opacity: 0; /* Onzichtbaar */
+        display: flex; /* Blijft op flex staan, belangrijk voor de animatie! */
+        pointer-events: none; /* Niet klikbaar als hij onzichtbaar is */
+        transition: opacity 0.5s ease-in, transform 0.5s ease-in; /* Zorgt voor de sluit-animatie */
     }
+
 
     .nav-links li + li {
         margin-top: 1rem;
     }
 
+    /* OPENEN ANIMATIE (Inschuiven) */
     #menu-toggle:checked ~ .nav-links {
-        display: flex;
-        animation: dropdown 0.25s ease forwards;
+        /* Zodra ingecheckt, direct naar de 'open' positie en maak klikbaar */
+        transform: translateX(0); /* Schuif in beeld */
+        opacity: 1; /* Wordt zichtbaar */
+        pointer-events: all; /* Maak klikbaar */
+        /* Let op: de "animation" eigenschap (slideInLeft) is verwijderd, 
+           omdat de "transition" op .nav-links het nu opvangt. */
     }
     
+    /* SLUITEN ANIMATIE: Dit gebeurt nu automatisch door de 'transition' 
+       op de .nav-links klasse wanneer de :checked staat wegvalt. */
+
     /* Werksecties */
     .work2 .flex,
     .work .grid {
@@ -628,30 +625,29 @@ footer {
 
     /* About Sectie */
     .about-new-style {
-        padding: 3rem 1rem;
+        padding: 3rem 0; /* Aangepast naar 0 laterale padding */
         max-width: 100%;
     }
     
     .info-text-box {
         padding: 1.5rem 1rem; 
-        border: 0.0625rem solid #222;
+        border: none; 
     }
     
     .info-image-box {
-        min-height: 18.75rem; 
+        min-height: 15rem; /* Vaste hoogte op mobiel */
     }
     
     /* Responsive Styles voor de Logos Grid (3 Items) */
     .logos-grid-small {
         grid-template-columns: 1fr;
         max-width: 95%;
-        border-radius: 1rem;
+
     }
 
     .grid-item-small {
         min-height: 5rem; /* Maakt het vakje kleiner */
         border-right: none;
-        border-bottom: 0.0625rem solid #222;
     }
 
     /* Verwijder de onderste border voor het allerlaatste item */
@@ -669,4 +665,35 @@ footer {
   justify-content: center;
   width: 50%;
 }
+}
+.grid-item-small a img{
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.algemene-voorwaarden{
+  display: flex;
+  justify-content: center;
+}
+
+.algemene-voorwaarden a {
+  padding: 1.3em;
+  background-color: #e5bc00;
+  text-decoration: none;
+  color: black;
+}
+
+.algemene-voorwaarden .bio-text {
+    font-family: 'redhat';
+    font-size: clamp(1rem, 1.15vw, 1.15rem);
+    line-height: 1.8;
+    margin-bottom: 3.5rem;
+    text-align: left;
+    color: #e5bc00;
+    max-width: 75%;
+}
+
+.flex h2{
+  margin-top: 1em;
 }
