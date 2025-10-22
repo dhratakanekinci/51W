@@ -292,7 +292,6 @@ nav img {
     width: 80%; /* Logo neemt 80% van de ruimte in */
     max-width: 150px;
     height: auto;
-    margin-bottom: 0.5rem; /* Ruimte onder het logo */
     transition: opacity 0.3s ease;
 }
 
