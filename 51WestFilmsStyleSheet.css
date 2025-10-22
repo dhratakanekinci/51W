@@ -87,6 +87,7 @@ nav img {
   color: #e5bc00;
   font-weight: 700;
   transition: opacity 0.3s ease;
+  font-size: .7em;
 }
 
 .nav-links a:hover {
@@ -294,7 +295,9 @@ nav img {
     height: auto;
     transition: opacity 0.3s ease;
 }
-
+video{
+ height: 100vh;
+}
 
 .grid-item-small a:hover {
     transform: none; /* Geen scale-effect op de hele link, alleen op de content */
@@ -465,6 +468,26 @@ footer {
    🔸 Responsive Styles
 ============================================ */
 
+
+@media (max-width: 28.125rem) {
+
+  .info-text-box h1 {
+  font-size: clamp(2.5rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  position: relative;
+  font-size: 2.1em;
+}
+  h2 {
+    font-family: "BBH";
+    color: #e5bc00;
+    margin-top: 2em;
+      font-size: 2.1em;
+  }
+
+}
+
 /* --- Tablets (max-width: 75rem = 1200px) --- */
 @media (max-width: 75rem) {
       /* 📸 Stijl voor de HTML <img> binnen de box */
@@ -560,6 +583,9 @@ footer {
     .menu-icon {
         display: flex;
     }
+    video{
+      height: 100vh;
+    }
 h2 {
   font-family: "BBH";
   color: #e5bc00;
@@ -626,6 +652,7 @@ h2 {
     .about-new-style {
         padding: 3rem 0; /* Aangepast naar 0 laterale padding */
         max-width: 100%;
+        padding-bottom: 0em;
     }
     
     .info-text-box {
@@ -695,4 +722,23 @@ h2 {
 
 .flex h2{
   margin-top: 1em;
+}
+
+@media (max-width: 767px) {
+    .Home video {
+        /* Zorgt dat de video de volle ruimte vult */
+        width: 100%;
+        height: 100%;
+        
+        /* Positie bovenaan de container */
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        /* Dwingt de video om de container te vullen en de zijkanten af te snijden */
+        object-fit: cover; 
+        
+        /* CRUCIAAL: Centreert het zichtbare gebied van de video */
+        object-position: center center;
+    }
 }
