@@ -544,7 +544,7 @@ footer {
 
     .work .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   /* Aangepast: Maak de sectie kleiner op grote schermen (80% van max 120rem) */
   width: 97%;
