@@ -192,7 +192,12 @@ nav img {
     border-left: 4rem solid transparent; /* Breedte van de driehoek */
     transform: translateX(100%);
 }
-
+.bio-text a {
+  padding: 0.7em;
+  background-color: #e5bc00;
+  text-decoration: none;
+  color: black;
+}
 
 /* 📸 Stijl voor de HTML <img> binnen de box */
 .info-image-box img {
