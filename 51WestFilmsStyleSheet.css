@@ -9,13 +9,16 @@
 }
 
 body {
- font-family:'redhat';
+  font-family:'redhat';
   color: #e5bc00;
   background: #0d0d0d;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
+/* =========================================
+   🔸 Font Declarations
+============================================ */
 @font-face {
     font-family: 'redhat';
     src: url('fonts/RedHatDisplay-VariableFont_wght.ttf') format('truetype');
@@ -30,8 +33,9 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+
 /* =========================================
-   🔸 Header + Navigation
+   🔸 Header and Navigation
 ============================================ */
 header {
   position: fixed;
@@ -42,9 +46,6 @@ header {
 h1{
   font-family: "BBH";
   color: #e5bc00;
-  
-
-
 }
 h2{
     font-family: "BBH";
@@ -53,7 +54,6 @@ h2{
     font-size: xxx-large;
 }
 ul li {
-
   font-size: xx-large;
   font-family: "BBH";
 }
@@ -113,8 +113,7 @@ nav img {
 }
 
 /* =========================================
-   🔸 About Section (Nieuwe strakke stijl)
-    -- Aangepast naar Afbeelding Layout --
+   🔸 About Section (Image/Text Layout)
 ============================================ */
 .about-new-style {
     /* Zorgt voor de grijze achtergrond */
@@ -147,7 +146,7 @@ nav img {
     justify-content: flex-start;
 }
 
-/* NIEUW: Rode onderstreping voor H1 */
+/* Heading styles */
 .info-text-box h1 {
     font-size: clamp(2.5rem, 4vw, 3rem);
     font-weight: 700;
@@ -172,7 +171,7 @@ nav img {
     color: #e5bc00; /* Iets lichtere tekstkleur */
 }
 
-/* 🖼️ Stijl voor de Afbeelding BOX */
+/* Image Box Container */
 .info-image-box {
     flex: 1; /* Beide helften even breed */
     position: relative;
@@ -180,7 +179,7 @@ nav img {
     /* Dit creëert de rode rand aan de boven- en rechterkant */
 }
 
-/* Zorgt voor de afsnijding hoek (optioneel, maar maakt het gelijk aan de afbeelding) */
+/* Image Box Corner Detail */
 .info-image-box::after {
     content: '';
     position: absolute;
@@ -199,7 +198,7 @@ nav img {
   color: black;
 }
 
-/* 📸 Stijl voor de HTML <img> binnen de box */
+/* Image Style */
 .info-image-box img {
     width: 100%;
     height: 100%;
@@ -208,7 +207,7 @@ nav img {
 }
 
 /* =========================================
-   🔸 Contact Links in About Sectie
+   🔸 Contact Links
 ============================================ */
 
 /* Container voor de email link */
@@ -219,7 +218,7 @@ nav img {
     gap: 0.3125rem;
 }
 
-/* Link element zelf (probleem opgelost, nu correct) */
+/* Link element zelf */
 .contact-email-link a {
     text-decoration: none;
     font-weight: 500;
@@ -243,10 +242,9 @@ nav img {
 }
 
 /* =========================================
-   🔸 Logos / Partners Grid (3 Items, onder de content-container)
-    -- Aangepast naar strakke box-stijl --
+   🔸 Logos / Partners Grid (3 Items)
 ============================================ */
-/* NIEUW: Zorgt dat de grid de breedte van de content-container krijgt */
+/* Logos Section Alignment */
 .logos-section-inline {
     width: 100%;
     display: flex;
@@ -255,11 +253,10 @@ nav img {
     padding: 3rem 2rem 0; /* Aangepast voor meer ruimte onder de About-sectie */
 }
 
+/* Logos Grid Structure */
 .logos-grid-small {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* Verwijdert de individuele borders ten gunste van één strakke box */
-  
     max-width: 60rem; /* Max breedte van de grid */
     width: 100%;
     overflow: hidden; 
@@ -275,12 +272,12 @@ nav img {
     margin:1em;
 }
 
-/* Verwijder de rechter border voor het laatste item */
+/* Remove right border for the last item */
 .logos-grid-small > .grid-item-small:last-child {
     border-right: none;
 }
 
-/* Stijl voor de inhoud (Link container) */
+/* Grid Item Link Styling */
 .grid-item-small a {
     color: #e5bc00; /* Standaard de gele kleur */
     font-size: 3.5rem; 
@@ -292,7 +289,7 @@ nav img {
     text-decoration: none; /* Geen onderstreping */
 }
 
-/* Stijl voor de afbeeldingen in de grid */
+/* Grid Item Image Style */
 .grid-item-small a img{
     display: block;
     width: 80%; /* Logo neemt 80% van de ruimte in */
@@ -301,7 +298,7 @@ nav img {
     transition: opacity 0.3s ease;
 }
 video{
- height: 100vh;
+  height: 100vh;
 }
 
 .grid-item-small a:hover {
@@ -313,8 +310,7 @@ video{
 }
 
 /* =========================================
-   🔸 Work Section (large project posters)
-    -- Aangepast: Max-breedte verkleind op grote schermen --
+   🔸 Work Section (Large Project Posters)
 ============================================ */
 .work2 {
   padding: 5rem rem;
@@ -327,7 +323,7 @@ video{
   flex-direction: column;
   align-items: center;
   gap: 3rem;
- /* Aangepast: Maak de sectie kleiner op grote schermen (80% van max 120rem) */
+  /* Aangepast: Maak de sectie kleiner op grote schermen (80% van max 120rem) */
   width: 80%;
   max-width: 96rem; /* 80% van 120rem is 96rem */
   margin: 0 auto;
@@ -338,7 +334,7 @@ video{
 }
 
 .work2 .card img {
-  /* Reset naar een normale, gecentreerde afbeeldingstijl */
+    /* Reset naar een normale, gecentreerde afbeeldingstijl */
     width: 100%;
     border-radius: 0em 0em 0em 0em; /* Gebruikt je eigen radius-stijl */
     object-fit: cover;
@@ -351,8 +347,7 @@ video{
 }
 
 /* =========================================
-   🔸 Work Section (3x2 grid thumbnails)
-    -- Aangepast: Max-breedte verkleind op grote schermen --
+   🔸 Work Section (3x2 Grid Thumbnails)
 ============================================ */
 .work {
   display: flex;
@@ -374,10 +369,41 @@ video{
   width: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  height: 100%;
 }
 
 .work .card img:hover {
   transform: scale(1.05);
+}
+
+/* =========================================
+   🔸 Algemene Voorwaarden (General Terms)
+============================================ */
+
+.algemene-voorwaarden{
+  display: flex;
+  justify-content: center;
+}
+
+.algemene-voorwaarden a {
+  padding: 1.3em;
+  background-color: #e5bc00;
+  text-decoration: none;
+  color: black;
+}
+
+.algemene-voorwaarden .bio-text {
+    font-family: 'redhat';
+    font-size: clamp(1rem, 1.15vw, 1.15rem);
+    line-height: 1.8;
+    margin-bottom: 3.5rem;
+    text-align: left;
+    color: #e5bc00;
+    max-width: 75%;
+}
+
+.flex h2{
+  margin-top: 1em;
 }
 
 /* =========================================
@@ -415,7 +441,7 @@ footer {
   display: none;
 }
 
-/* Plaats de drie streepjes */
+/* Position of the three lines */
 .menu-icon span:nth-child(1) {
   top: 0;
 }
@@ -429,7 +455,7 @@ footer {
   bottom: 0;
 }
 
-/* Checked state */
+/* Checked state (X icon) */
 #menu-toggle:checked + .menu-icon span:nth-child(1) {
   top: 50%;
   transform: rotate(45deg);
@@ -444,7 +470,7 @@ footer {
   transform: rotate(-45deg);
 }
 
-/* NIEUWE Keyframes voor slideInLeft */
+/* Keyframes (unused by final mobile nav implementation, but kept) */
 @keyframes slideInLeft {
     from {
         opacity: 0;
@@ -456,7 +482,6 @@ footer {
     }
 }
 
-/* NIEUWE Keyframes voor slideOutLeft (Sluiten) */
 @keyframes slideOutLeft {
     from {
         opacity: 1;
@@ -473,17 +498,17 @@ footer {
    🔸 Responsive Styles
 ============================================ */
 
-
+/* --- Small Phones (max-width: 450px) --- */
 @media (max-width: 28.125rem) {
 
   .info-text-box h1 {
-  font-size: clamp(2.5rem, 4vw, 3rem);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  text-align: left;
-  position: relative;
-  font-size: 2.1em;
-}
+    font-size: clamp(2.5rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    position: relative;
+    font-size: 2.1em;
+  }
   h2 {
     font-family: "BBH";
     color: #e5bc00;
@@ -493,18 +518,18 @@ footer {
 
 }
 
-/* --- Tablets (max-width: 75rem = 1200px) --- */
+/* --- Tablets and Small Desktops (max-width: 1200px) --- */
 @media (max-width: 75rem) {
-      /* 📸 Stijl voor de HTML <img> binnen de box */
-.info-image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* BELANGRIJK: Zorgt dat de afbeelding het hele vlak vult */
-    display: block;
-    border-radius: 0;
-}
- 
-    /* Container wordt verticaal en breder op tablet */
+    /* Image Box */
+    .info-image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* BELANGRIJK: Zorgt dat de afbeelding het hele vlak vult */
+        display: block;
+        border-radius: 0;
+    }
+  
+    /* About Section Layout Change to Column */
     .content-container {
         flex-direction: column;
         gap: 0; /* Geen gap */
@@ -516,7 +541,6 @@ footer {
     
     .info-text-box {
         padding: 2rem; 
-
     }
     
     .info-image-box {
@@ -535,7 +559,7 @@ footer {
         bottom: 1.5rem;
     }
     
-    /* Rest van de tablet stijlen */
+    /* Logos Grid Alignment */
     .logos-section-inline {
         width: 100%;
         display: flex;
@@ -552,6 +576,7 @@ footer {
         font-size: 1.1rem; 
     }
     
+    /* Work Sections */
     .work2 .card img {
         width: 100%;
     }
@@ -560,7 +585,7 @@ footer {
         gap: 1.5rem;
         grid-template-columns: repeat(2, 1fr);
     }
-/* Work Secties: Full width op tablet schermen */
+    /* Work Sections Full Width */
     .work2 .flex,
      .grid {
         width: 90%; /* Zorgt voor 90% breedte op tablet */
@@ -571,18 +596,17 @@ footer {
     }
 
     .work .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  /* Aangepast: Maak de sectie kleiner op grote schermen (80% van max 120rem) */
-  width: 97%;
-  max-width: 96rem; /* 80% van 120rem is 96rem */
-  margin: 0 auto;
-}
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 97%;
+        max-width: 96rem; 
+        margin: 0 auto;
+    }
   
 }
 
-/* --- Phones (max-width: 48rem = 768px) --- */
+/* --- Phones (max-width: 768px) --- */
 @media (max-width: 48rem) {
     /* Navigatie (hamburger menu) */
     .menu-icon {
@@ -596,7 +620,7 @@ h2 {
   color: #e5bc00;
   margin-top: 2em;
 }
-    /* BELANGRIJK: DEZE HELE STIJL IS HERZIEN VOOR DE ANIMATIE FIX */
+    /* Mobile Navigation Menu */
     .nav-links {
         /* Basisinstellingen */
         position: absolute;
@@ -630,14 +654,9 @@ h2 {
         transform: translateX(0); /* Schuif in beeld */
         opacity: 1; /* Wordt zichtbaar */
         pointer-events: all; /* Maak klikbaar */
-        /* Let op: de "animation" eigenschap (slideInLeft) is verwijderd, 
-           omdat de "transition" op .nav-links het nu opvangt. */
     }
     
-    /* SLUITEN ANIMATIE: Dit gebeurt nu automatisch door de 'transition' 
-       op de .nav-links klasse wanneer de :checked staat wegvalt. */
-
-    /* Werksecties */
+    /* Work Sections */
     .work2 .flex,
     .work .grid {
         width: 95%;
@@ -653,7 +672,7 @@ h2 {
         padding: 1rem 1rem;
     }
 
-    /* About Sectie */
+    /* About Section */
     .about-new-style {
         padding: 3rem 0; /* Aangepast naar 0 laterale padding */
         max-width: 100%;
@@ -669,7 +688,7 @@ h2 {
         min-height: 15rem; /* Vaste hoogte op mobiel */
     }
     
-    /* Responsive Styles voor de Logos Grid (3 Items) */
+    /* Logos Grid (3 Items) */
     .logos-grid-small {
         grid-template-columns: 1fr;
         max-width: 95%;
@@ -681,7 +700,7 @@ h2 {
         border-right: none;
     }
 
-    /* Verwijder de onderste border voor het allerlaatste item */
+    /* Remove bottom border for the very last item */
     .logos-grid-small > .grid-item-small:last-child {
         border-bottom: none;
     }
@@ -692,10 +711,10 @@ h2 {
     }
 
     .grid-item-small a img {
-  display: flex;
-  justify-content: center;
-  width: 50%;
-}
+        display: flex;
+        justify-content: center;
+        width: 50%;
+    }
 }
 .grid-item-small a img{
   display: flex;
@@ -703,32 +722,7 @@ h2 {
   width: 80%;
 }
 
-.algemene-voorwaarden{
-  display: flex;
-  justify-content: center;
-}
-
-.algemene-voorwaarden a {
-  padding: 1.3em;
-  background-color: #e5bc00;
-  text-decoration: none;
-  color: black;
-}
-
-.algemene-voorwaarden .bio-text {
-    font-family: 'redhat';
-    font-size: clamp(1rem, 1.15vw, 1.15rem);
-    line-height: 1.8;
-    margin-bottom: 3.5rem;
-    text-align: left;
-    color: #e5bc00;
-    max-width: 75%;
-}
-
-.flex h2{
-  margin-top: 1em;
-}
-
+/* --- Mobile Video Background Specific Style (max-width: 767px) --- */
 @media (max-width: 767px) {
     .Home video {
         /* Zorgt dat de video de volle ruimte vult */
